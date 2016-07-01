@@ -55,3 +55,19 @@ var projects = {
 	}
 	]
 }
+
+skills = ["HTML ", "CSS ", "JavaScript ", "C ", "Java ", "Tutoring ", "Music Performace "];
+
+var bio = {
+	"name" : "Ruben Vazquez",
+	"role" : "Front-End Web Developer",
+	"welcomeMessage" : "Welcome to my online resume page!",
+	"contacts" : {
+		"mobile" : "",
+		"email" : "vazquezr@knights.ucf.edu",
+		"github" : "vazquezjr",
+		"twitter" : "",
+		"location" : "Orlando, FL"
+	},
+	"skills" : skills
+}
