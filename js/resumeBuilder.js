@@ -30,3 +30,28 @@ var work = {
 	}
 	]
 }
+
+var projects = {
+	"project" : [
+	{
+		"title" : "College Event Website",
+		"datesWorked" : "May 2016 - Present",
+		"description" : "A website that allows users to view/create events pertaining to the college/university of the student(s).\nLogin and authentication enforced by Joomla to provide users with the proper ability to view and create events. Database created by MySQL Workbench to store and manage information regarding the access level of users, the events, and the participating universities. PHP and JavaScript used for providing users with a dynamic, on-the-spot updating, user experience."
+		"images" : [
+		{
+			
+		}
+		]
+	},
+	{
+		"title" : "Boggle",
+		"datesWorked" : "May 2015 - August 2015",
+		"description" : "An application that models the popular board game Boggle using Java.\nThe application features a graphical user interface which shows the board of sixteen dice, a panel that shows the words that user has found, a timer to keep track of the time remaining, and a panel that shows the current word being constructed among the various other features of the application."
+		"images" : [
+		{
+			
+		}
+		]
+	}
+	]
+}
