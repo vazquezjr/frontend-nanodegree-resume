@@ -71,3 +71,36 @@ var bio = {
 	},
 	"skills" : skills
 }
+
+var education = {
+	"schools" : [
+	{
+		"name" : "University of Central Florida",
+		"location" : "Orlando, FL",
+		"degree" : "Bachelor's in Science"
+		"majors" : [
+			"Computer Engineering"
+		],
+		"datesAttended" : "August 2014 - May 2017",
+		"url" : "ucf.edu"
+	},
+	{
+		"name" : "Palm Beach State College",
+		"location" : "Lake Worth, FL",
+		"degree" : "Associate in Arts",
+		"majors" : [
+			"Computer Engineering"
+		],
+		"datesAttended" : "August 2010 - May 2014",
+		"url" : "palmbeachstate.edu"
+	}
+	],
+	"onlineCourses" : [
+	{
+		"title" : "Front-End Web Developer",
+		"school" : "Udacity",
+		"dates" : "June 2016 - September 2016",
+		"url" : "udacity.com"
+	}
+	]
+}
