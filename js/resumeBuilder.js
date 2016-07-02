@@ -143,3 +143,15 @@ function displayWork() {
 displayWork();
 
 $("#main").append(internationalizeButton);
+
+function inName(string) {
+	
+	var stringArray = string.trim().split(" ");
+	var first = stringArray[0].charAt(0).toUpperCase() + stringArray[0].slice(1).toLowerCase();
+	var second = stringArray[1].toUpperCase();
+	
+	var inter = first + " " + second;
+	
+	return inter;
+	
+}
