@@ -164,3 +164,27 @@ $(document).click(function(loc) {
 	logClicks(x, y);
 	
 });
+
+projects.display = function() {
+	
+	for (var proj in projects.project) {
+		
+		$("#projects").append(HTMLprojectStart);
+		var projectTitleString = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
+		$(".project-entry:last").append(projectTitleString);
+		var projectDatesString = HTMLprojectDates.replace("%data%", projects.project[proj].datesWorked);
+		$(".project-entry:last").append(projectDatesString);
+		var projectDescriptionString = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
+		$(".project-entry:last").append(projectDescriptionString);
+		for (image in projects.project[proj].images) {
+			
+			var projectImageString = HTMLprojectImage.replace("%data%", projects.project[proj].images[image]);
+			$(".project-entry:last").append(projectImageString);
+			
+		}
+		
+	}
+	
+}
+
+projects.display();
