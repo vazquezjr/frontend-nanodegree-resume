@@ -186,7 +186,37 @@ bio.display = function() {
 	}
 };
 
+education.display = function() {
+	
+	for (var i = 0; i < education.schools.length; i++) {
+		
+		$("#education").append(HTMLschoolStart);
+		$(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[i].name));
+		$(".education-entry:last").append(HTMLschoolDegree.replace("%data%", education.schools[i].degree));
+		$(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[i].datesAttended));
+		$(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[i].location));
+		
+		for (var j = 0; j < education.schools[i].majors.length; j++) {
+			
+			$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[i].majors[j]));
+			
+		}
+		
+	}
 
+	$("#education").append(HTMLonlineClasses);
+	
+	for (var i = 0; i < education.onlineCourses.length; i++) {
+		
+		$("#education").append(HTMLschoolStart);
+		$(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title));
+		$(".education-entry:last").append(HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school));
+		$(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates));
+		$(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.onlineCourses[i].url));
+		
+	}
+	
+};
 
 function inName(string) {
 	
@@ -203,6 +233,6 @@ function inName(string) {
 work.display();
 projects.display();
 bio.display();
-
+education.display();
 $("#mapDiv").append(googleMap);
 $("#main").append(internationalizeButton);
