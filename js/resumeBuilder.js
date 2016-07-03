@@ -38,7 +38,7 @@ var projects = {
 		"datesWorked" : "May 2016 - Present",
 		"description" : "A website that allows users to view/create events pertaining to the college/university of the student(s).<br>Login and authentication enforced by Joomla to provide users with the proper ability to view and create events. Database created by MySQL Workbench to store and manage information regarding the access level of users, the events, and the participating universities. PHP and JavaScript used for providing users with a dynamic, on-the-spot updating, user experience.",
 		"images" : [
-		
+			"images/collegeevent.jpg"
 		]
 	},
 	{
@@ -46,7 +46,7 @@ var projects = {
 		"datesWorked" : "May 2015 - August 2015",
 		"description" : "An application that models the popular board game Boggle using Java.<br>The application features a graphical user interface which shows the board of sixteen dice, a panel that shows the words that user has found, a timer to keep track of the time remaining, and a panel that shows the current word being constructed among the various other features of the application.",
 		"images" : [
-		
+			"images/boggle.jpg"
 		]
 	}
 	]
@@ -57,7 +57,6 @@ skill = ["HTML", "CSS", "JavaScript", "C", "Java", "Tutoring", "Music Performace
 var bio = {
 	"name" : "Ruben Vazquez",
 	"role" : "Front-End Web Developer",
-	"welcomeMessage" : "Welcome to my online resume page!",
 	"contacts" : {
 		"mobile" : "",
 		"email" : "vazquezr@knights.ucf.edu",
@@ -65,7 +64,9 @@ var bio = {
 		"twitter" : "",
 		"location" : "Orlando, FL"
 	},
-	"skills" : skill
+	"welcomeMessage" : "Welcome to my online resume page!",
+	"skills" : skill,
+	"biopic" : "images/mypic.jpg"
 }
 
 var education = {
@@ -78,7 +79,6 @@ var education = {
 			"Computer Engineering"
 		],
 		"datesAttended" : "August 2014 - May 2017",
-		"url" : "ucf.edu"
 	},
 	{
 		"name" : "Palm Beach State College",
@@ -88,7 +88,6 @@ var education = {
 			"Computer Engineering"
 		],
 		"datesAttended" : "August 2010 - May 2014",
-		"url" : "palmbeachstate.edu"
 	}
 	],
 	"onlineCourses" : [
@@ -101,21 +100,16 @@ var education = {
 	]
 }
 
-if (bio.skills.length > 0) {
+/* $(document).click(function(loc) {
 	
-	HTMLheaderName = HTMLheaderName.replace("%data%", bio.name);
-	$("#header").append(HTMLheaderName);
-	$("#header").append(HTMLskillsStart);
+	var x = loc.pageX;
+	var y = loc.pageY;
 	
-	var strToRep;
+	logClicks(x, y);
 	
-	for (var i = 0; i < bio.skills.length; i++) {
-		strToRep = HTMLskills.replace("%data%", bio.skills[i]);
-		$("#skills").append(strToRep);
-	}
-}
+}); */
 
-function displayWork() {
+work.display = function() {
 
 	var workStartString;
 	var workEmployerString;
@@ -124,25 +118,75 @@ function displayWork() {
 	var workLocationString;
 	var workDescriptionString;
 
-	for (var job in work.jobs) {
+	for (var i = 0; i < work.jobs.length; i++) {
 		
 		$("#workExperience").append(HTMLworkStart);
-		workEmployerString = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		workTitleString = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		workLocationString = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		workDatesString = HTMLworkDates.replace("%data%", work.jobs[job].datesWorked);
-		workDescriptionString = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		workEmployerString = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+		workTitleString = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+		workLocationString = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+		workDatesString = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
+		workDescriptionString = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 		$(".work-entry:last").append(workEmployerString + workTitleString);
 		$(".work-entry:last").append(workLocationString);
 		$(".work-entry:last").append(workDatesString);
 		$(".work-entry:last").append(workDescriptionString);
 		
 	}
-}
+};
 
-displayWork();
+projects.display = function() {
+	
+	for (var i = 0; i < projects.project.length; i++) {
+		
+		$("#projects").append(HTMLprojectStart);
+		var projectTitleString = HTMLprojectTitle.replace("%data%", projects.project[i].title);
+		$(".project-entry:last").append(projectTitleString);
+		var projectDatesString = HTMLprojectDates.replace("%data%", projects.project[i].datesWorked);
+		$(".project-entry:last").append(projectDatesString);
+		var projectDescriptionString = HTMLprojectDescription.replace("%data%", projects.project[i].description);
+		$(".project-entry:last").append(projectDescriptionString);
+		for (var j = 0; j < projects.project[i].images.length; j++) {
+			
+			var projectImageString = HTMLprojectImage.replace("%data%", projects.project[i].images[j]);
+			$(".project-entry:last").append(projectImageString);
+			
+		}
+		
+	}
+	
+};
 
-$("#main").append(internationalizeButton);
+bio.display = function() {
+	
+	$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+	$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+	
+	$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+	$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+	$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+	$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+	
+	$("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+	$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+	$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+	$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+	$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+
+	$("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
+	$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+	
+	$("#header").append(HTMLskillsStart);
+	
+	var strToRep;
+		
+	for (var i = 0; i < bio.skills.length; i++) {
+		strToRep = HTMLskills.replace("%data%", bio.skills[i]);
+		$("#skills").append(strToRep);
+	}
+};
+
+
 
 function inName(string) {
 	
@@ -156,37 +200,9 @@ function inName(string) {
 	
 }
 
-$(document).click(function(loc) {
-	
-	var x = loc.pageX;
-	var y = loc.pageY;
-	
-	logClicks(x, y);
-	
-});
-
-projects.display = function() {
-	
-	for (var proj in projects.project) {
-		
-		$("#projects").append(HTMLprojectStart);
-		var projectTitleString = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
-		$(".project-entry:last").append(projectTitleString);
-		var projectDatesString = HTMLprojectDates.replace("%data%", projects.project[proj].datesWorked);
-		$(".project-entry:last").append(projectDatesString);
-		var projectDescriptionString = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
-		$(".project-entry:last").append(projectDescriptionString);
-		for (image in projects.project[proj].images) {
-			
-			var projectImageString = HTMLprojectImage.replace("%data%", projects.project[proj].images[image]);
-			$(".project-entry:last").append(projectImageString);
-			
-		}
-		
-	}
-	
-}
-
+work.display();
 projects.display();
+bio.display();
 
 $("#mapDiv").append(googleMap);
+$("#main").append(internationalizeButton);
