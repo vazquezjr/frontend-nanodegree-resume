@@ -29,7 +29,7 @@ var work = {
 		"description" : "- Obtained College Reading and Learning Association (CRLA) Level III tutor certification.<br>- Scheduled appointments with students to receive help from tutors.<br>- Served as an ambassador to inform the college community about tutoring benefits.<br>- Responsible for upholding the goals and standards of the college and being a role model for students"
 	}
 	]
-}
+};
 
 var projects = {
 	"project" : [
@@ -50,7 +50,7 @@ var projects = {
 		]
 	}
 	]
-}
+};
 
 skill = ["HTML", "CSS", "JavaScript", "C", "Java", "Tutoring", "Music Performace"];
 
@@ -66,7 +66,7 @@ var bio = {
 	"welcomeMessage" : "Welcome to my online resume page!",
 	"skills" : skill,
 	"biopic" : "images/mypic.jpg"
-}
+};
 
 var education = {
 	"schools" : [
@@ -97,7 +97,7 @@ var education = {
 		"url" : "udacity.com"
 	}
 	]
-}
+};
 
 /* $(document).click(function(loc) {
 	
@@ -203,7 +203,7 @@ education.display = function() {
 
 	$("#education").append(HTMLonlineClasses);
 	
-	for (var i = 0; i < education.onlineCourses.length; i++) {
+	for (var k = 0; i < education.onlineCourses.length; i++) {
 		
 		$("#education").append(HTMLschoolStart);
 		$(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title));
