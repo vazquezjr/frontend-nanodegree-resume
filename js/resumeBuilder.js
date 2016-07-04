@@ -58,10 +58,9 @@ var bio = {
 	"name" : "Ruben Vazquez",
 	"role" : "Front-End Web Developer",
 	"contacts" : {
-		"mobile" : "",
+		"mobile" : "555-555-5555",
 		"email" : "vazquezr@knights.ucf.edu",
 		"github" : "vazquezjr",
-		"twitter" : "",
 		"location" : "Orlando, FL"
 	},
 	"welcomeMessage" : "Welcome to my online resume page!",
@@ -163,13 +162,11 @@ bio.display = function() {
 	
 	$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
 	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-	$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
 	$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
 	$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 	
 	$("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
 	$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-	$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
 	$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
 	$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
